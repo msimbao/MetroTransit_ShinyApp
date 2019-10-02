@@ -1,0 +1,44 @@
+---
+title: "Time Step Plot & Forest"
+output: html_document
+---
+
+```{r}
+data_geo$HC02_EST_VC02 <- as.numeric(data_geo$HC02_EST_VC02)
+
+data_cuts <- cut(data_geo$HC02_EST_VC02, breaks = 6)
+```
+```{r}
+data_geo$HC02_EST_VC02 <- as.numeric(data_geo$HC02_EST_VC02)
+
+data_geo[is.na(data_geo)] <- 0
+
+bins <- c(0, 1.18e+04,4.23e+04, 7.27e+04, 1.03e+05, 1.33e+05, 1.64e+05, 1.94e+05, Inf)
+
+pal <- colorBin("YlOrRd", domain = data_geo$HC02_EST_VC02, bins = bins)
+
+labels <- sprintf(
+  "<strong>%s</strong><br/>%g people / mi<sup>2</sup>",
+  data_geo$GEO.display.label, data_geo$HC02_EST_VC02
+) %>% lapply(htmltools::HTML)
+```
+
+
+```{r}
+# Extract the hexadecimal color values for a particular palette from
+# the RColorBrewer package, as used by ggplot's scales package. 
+
+library(RColorBrewer)
+
+brewer.pal(12, "Paired")
+
+# [1] "#A6CEE3" "#1F78B4" "#B2DF8A" "#33A02C" "#FB9A99" "#E31A1C"
+# [7] "#FDBF6F" "#FF7F00" "#CAB2D6" "#6A3D9A" "#FFFF99" "#B15928"
+
+# to display that palette:
+display.brewer.pal(12, "Paired")
+```
+```{r}
+
+```
+

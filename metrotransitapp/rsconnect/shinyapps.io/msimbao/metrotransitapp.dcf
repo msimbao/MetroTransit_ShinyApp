@@ -1,0 +1,12 @@
+name: metrotransitapp
+title: metrotransitapp
+username:
+account: msimbao
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1272740
+bundleId: 2460657
+url: https://msimbao.shinyapps.io/metrotransitapp/
+when: 1569978100.38206
+asMultiple: FALSE
+asStatic: FALSE
